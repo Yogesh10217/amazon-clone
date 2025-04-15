@@ -1,6 +1,13 @@
-import {cart,removeCart} from '../data/cart.js';
+import {cart,CartQuantity,removeCart} from '../data/cart.js';
 import {products} from '../data/products.js';
 let cartSummaryHTML='';
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+
+
+const today = dayjs();
+const deliveryDate = today.add(7, 'days').format('dddd, MMMM D');
+
+
 cart.forEach((cartItem)=>{
   const productId = cartItem.productId;
 
@@ -98,7 +105,6 @@ document.querySelectorAll('.js-delete-link')
     const container = document.querySelector(`.js-cart-item-container-${productId}`)
     container.remove();
   });
-  
 });
 
 
