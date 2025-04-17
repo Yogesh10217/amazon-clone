@@ -42,15 +42,11 @@ export function CartQuantity(){
 }
 
 export function removeCart(productId){
-  let newCart=[];
-  newCart.forEach((cart)=>{
-    if(cartItem.productId !== productId ){
-      newCart.push(cartItem);
-    }
-  });
-  
-  cart = newCart;
-  saveToStorage();
+  const index = cart.findIndex(cartItem => cartItem.productId === productId);
+  if (index !== -1) {
+    cart.splice(index, 1); // removes the item in-place
+    saveToStorage();
+  }
 }
 
 export function updateDeliveryOption(productId,deliveryOptionId){
