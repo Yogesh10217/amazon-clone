@@ -1,5 +1,5 @@
 
-import {formatCurrency} from "../Scripts/utility/money.js";
+import {formatCurrency} from "../../Scripts/utility/money.js";
 
 
 describe('test suit: formattCurrency' ,() => {
