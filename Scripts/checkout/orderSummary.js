@@ -26,6 +26,7 @@ export function renderOrderSummary(){
     
     cartSummaryHTML+=`
       <div class="cart-item-container
+      js-cart-item-container
       js-cart-item-container-${matchProduct.id}">
         <div class="delivery-date">
           Delivery date: ${dateString}
@@ -42,14 +43,18 @@ export function renderOrderSummary(){
             <div class="product-price">
               $${(matchProduct.priceCents/100).toFixed(2)}
             </div>
-            <div class="product-quantity">
+            <div class="product-quantity
+            js-product-quantity-${matchProduct.id}">
+            >
               <span>
                 Quantity: <span class="quantity-label">${cartItem.quantity}</span>
               </span>
               <span class="update-quantity-link link-primary">
                 Update
               </span>
-              <span class="delete-quantity-link link-primary js-delete-link"data-product-id = "${matchProduct.id}">
+              <span class="delete-quantity-link link-primary js-delete-link
+              js-delete-link-${matchProduct.id}"
+              data-product-id = "${matchProduct.id}">
                 Delete
               </span>
             </div>
