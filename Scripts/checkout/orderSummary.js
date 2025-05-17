@@ -2,7 +2,7 @@ import {cart,updateDeliveryOption,removeCart} from '../../data/cart.js';
 import { products ,getProducts} from '../../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, getDeliveryOptions } from '../../data/deliveryOptions.js';
-import formatCurrency from '../utility/money.js';
+import {formatCurrency} from '../utility/money.js';
 import { renderPaymentSummary } from './paymentSummary.js';
 
 export function renderOrderSummary(){
@@ -41,7 +41,7 @@ export function renderOrderSummary(){
               ${matchProduct.name}
             </div>
             <div class="product-price">
-              $${(matchProduct.priceCents/100).toFixed(2)}
+              ${matchProduct.getprice()}
             </div>
             <div class="product-quantity
             js-product-quantity-${matchProduct.id}">
